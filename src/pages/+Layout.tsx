@@ -1,8 +1,8 @@
 import logoUrl from '@/assets/logo.svg'
+import '@/assets/style.css'
 import Link from '@/components/Link'
-import './style.css'
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <div
       style={{
@@ -22,7 +22,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   )
 }
 
-function Sidebar({ children }: { children: React.ReactNode }) {
+const Sidebar: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <div
       id='sidebar'
@@ -40,7 +40,7 @@ function Sidebar({ children }: { children: React.ReactNode }) {
   )
 }
 
-function Content({ children }: { children: React.ReactNode }) {
+const Content: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <div id='page-container'>
       <div
@@ -57,7 +57,7 @@ function Content({ children }: { children: React.ReactNode }) {
   )
 }
 
-function Logo() {
+const Logo: React.FC = () => {
   return (
     <div
       style={{
@@ -71,3 +71,5 @@ function Logo() {
     </div>
   )
 }
+
+export default Layout
