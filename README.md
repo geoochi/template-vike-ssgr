@@ -1,62 +1,65 @@
-Generated with [vike.dev/new](https://vike.dev/new) ([version 405](https://www.npmjs.com/package/create-vike/v/0.0.405)) using this command:
+# template - vike - ssgr
+
+A fullstack SSG/SSR website build with vike
+
+## Features
+
+- react
+- vike
+- tailwindcss
+- shadcn
+- lucide icon
+- SSG / SSR
+
+## How to use
+
+### 1. initiate
 
 ```sh
-bun create vike@latest --react --express --sqlite
+git clone https://github.com/geoochi/template-vike-ssgr.git
+cd template-vike-ssgr
 ```
 
-## Contents
+### 2. install dependencies and set environment variables
 
-- [React](#react)
+```sh
+pnpm i
+```
 
-  - [`/pages/+config.ts`](#pagesconfigts)
-  - [Routing](#routing)
-  - [`/pages/_error/+Page.jsx`](#pages_errorpagejsx)
-  - [`/pages/+onPageTransitionStart.ts` and `/pages/+onPageTransitionEnd.ts`](#pagesonpagetransitionstartts-and-pagesonpagetransitionendts)
-  - [SSR](#ssr)
-  - [HTML Streaming](#html-streaming)
+### 3. develop
 
-- [_Sqlite_](#sqlite)
+```sh
+pnpm d
+```
 
-## React
+### 4. build SSG site and SSR server
 
-This app is ready to start. It's powered by [Vike](https://vike.dev) and [React](https://react.dev/learn).
+```sh
+pnpm b
+```
 
-### `/pages/+config.ts`
+### 5. run static site
 
-Such `+` files are [the interface](https://vike.dev/config) between Vike and your code. It defines:
+```sh
+pnpm p
+```
 
-- A default [`<Layout>` component](https://vike.dev/Layout) (that wraps your [`<Page>` components](https://vike.dev/Page)).
-- A default [`title`](https://vike.dev/title).
-- Global [`<head>` tags](https://vike.dev/head-tags).
+### 6. run SSR server
 
-### Routing
+```sh
+pnpm start
+```
 
-[Vike's built-in router](https://vike.dev/routing) lets you choose between:
+### 7. remote deploy
 
-- [Filesystem Routing](https://vike.dev/filesystem-routing) (the URL of a page is determined based on where its `+Page.jsx` file is located on the filesystem)
-- [Route Strings](https://vike.dev/route-string)
-- [Route Functions](https://vike.dev/route-function)
+start:
 
-### `/pages/_error/+Page.jsx`
+```sh
+./start
+```
 
-The [error page](https://vike.dev/error-page) which is rendered when errors occur.
+stop:
 
-### `/pages/+onPageTransitionStart.ts` and `/pages/+onPageTransitionEnd.ts`
-
-The [`onPageTransitionStart()` hook](https://vike.dev/onPageTransitionStart), together with [`onPageTransitionEnd()`](https://vike.dev/onPageTransitionEnd), enables you to implement page transition animations.
-
-### SSR
-
-SSR is enabled by default. You can [disable it](https://vike.dev/ssr) for all your pages or only for some pages.
-
-### HTML Streaming
-
-You can enable/disable [HTML streaming](https://vike.dev/stream) for all your pages, or only for some pages while still using it for others.
-
-## _Sqlite_
-
-First, ensure that `DATABASE_URL` is configured in `.env` file, then create the database:
-
-```bash
-pnpm sqlite:migrate # creates sqlite tables
+```sh
+./stop
 ```
