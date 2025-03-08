@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import sqlite from 'better-sqlite3'
 
 export function db() {
