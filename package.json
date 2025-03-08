@@ -2,7 +2,8 @@
   "scripts": {
     "d": "tsx ./express-entry.ts",
     "b": "vike build",
-    "p": "cross-env NODE_ENV=production tsx ./express-entry.ts",
+    "p": "pnpx http-server dist/client -a 127.0.0.1 -p 3000",
+    "start": "cross-env NODE_ENV=production tsx ./express-entry.ts",
     "db": "tsx ./database/init.ts"
   },
   "dependencies": {
