@@ -1,14 +1,9 @@
-import sqlite, { type Database } from 'better-sqlite3'
+import sqlite from 'better-sqlite3'
 
-let singleton: Database | undefined = undefined
-
-export function db(): Database {
-  if (!singleton) {
-    if (!process.env.DATABASE_URL) {
-      throw new Error('Missing DATABASE_URL in .env file')
-    }
-
-    singleton = sqlite(process.env.DATABASE_URL)
+export function db() {
+  if (!process.env.DATABASE_URL) {
+    throw new Error('Missing DATABASE_URL in .env file')
   }
-  return singleton
+
+  return sqlite(process.env.DATABASE_URL)
 }
