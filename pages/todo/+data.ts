@@ -6,9 +6,7 @@ export type Data = {
   todo: { text: string }[]
 }
 
-export default async function data(
-  _pageContext: PageContextServer
-): Promise<Data> {
+export default async function data(_pageContext: PageContextServer): Promise<Data> {
   const todo = sqliteQueries.getAllTodos(_pageContext.db)
 
   return { todo }

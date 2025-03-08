@@ -1,10 +1,6 @@
 import { useState } from 'react'
 
-export function TodoList({
-  initialTodoItems,
-}: {
-  initialTodoItems: { text: string }[]
-}) {
+export function TodoList({ initialTodoItems }: { initialTodoItems: { text: string }[] }) {
   const [todoItems, setTodoItems] = useState(initialTodoItems)
   const [newTodo, setNewTodo] = useState('')
   return (
@@ -17,11 +13,11 @@ export function TodoList({
       </ul>
       <div>
         <form
-          onSubmit={async (ev) => {
+          onSubmit={async ev => {
             ev.preventDefault()
 
             // Optimistic UI update
-            setTodoItems((prev) => [...prev, { text: newTodo }])
+            setTodoItems(prev => [...prev, { text: newTodo }])
             try {
               const response = await fetch('/api/todo/create', {
                 method: 'POST',
@@ -35,15 +31,11 @@ export function TodoList({
             } catch (e) {
               console.error(e)
               // rollback
-              setTodoItems((prev) => prev.slice(0, -1))
+              setTodoItems(prev => prev.slice(0, -1))
             }
           }}
         >
-          <input
-            type='text'
-            onChange={(ev) => setNewTodo(ev.target.value)}
-            value={newTodo}
-          />
+          <input type='text' onChange={ev => setNewTodo(ev.target.value)} value={newTodo} />
           <button type='submit'>Add to-do</button>
         </form>
       </div>

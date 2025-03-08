@@ -5,7 +5,5 @@ export function insertTodo(db: Database, text: string) {
 }
 
 export function getAllTodos(db: Database) {
-  return db
-    .prepare<[], { id: number; text: string }>('SELECT * FROM todos')
-    .all()
+  return db.prepare<[], { id: number; text: string }>('SELECT * FROM todos').all()
 }

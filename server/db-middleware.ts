@@ -10,12 +10,11 @@ declare global {
 }
 
 // Add `db` to the Context
-export const dbMiddleware: Get<[], UniversalMiddleware> =
-  () => async (_request, context, _runtime) => {
-    const db = sqliteDb()
+export const dbMiddleware: Get<[], UniversalMiddleware> = () => async (_request, context, _runtime) => {
+  const db = sqliteDb()
 
-    return {
-      ...context,
-      db: db,
-    }
+  return {
+    ...context,
+    db: db,
   }
+}
