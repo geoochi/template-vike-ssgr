@@ -25,6 +25,7 @@ const TodoList: React.FC = () => {
         <form
           onSubmit={async ev => {
             ev.preventDefault()
+            setTodoItems(prev => [...prev, { id: 0, text: newTodo }])
             try {
               const response = await fetch('/api/todo/create', {
                 method: 'POST',
@@ -35,7 +36,6 @@ const TodoList: React.FC = () => {
               })
               await response.blob()
               setNewTodo('')
-              fetchTodos()
             } catch (e) {
               console.error(e)
             }
