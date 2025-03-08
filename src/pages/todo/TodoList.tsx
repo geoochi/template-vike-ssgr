@@ -1,9 +1,18 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import type { Todo } from '@/types'
 
-const TodoList: React.FC<{ initialTodoItems: Todo[] }> = ({ initialTodoItems }) => {
-  const [todoItems, setTodoItems] = useState(initialTodoItems)
+const TodoList: React.FC = () => {
+  const [todoItems, setTodoItems] = useState<Todo[]>([])
   const [newTodo, setNewTodo] = useState('')
+  const fetchTodos = async () => {
+    const res = await fetch('/api/todo')
+    const data = await res.json()
+    setTodoItems(data.todos)
+  }
+  useEffect(() => {
+    fetchTodos()
+  }, [])
+
   return (
     <>
       <ul>
@@ -16,9 +25,6 @@ const TodoList: React.FC<{ initialTodoItems: Todo[] }> = ({ initialTodoItems }) 
         <form
           onSubmit={async ev => {
             ev.preventDefault()
-
-            // Optimistic UI update
-            setTodoItems(prev => [...prev, { id: 0, text: newTodo }])
             try {
               const response = await fetch('/api/todo/create', {
                 method: 'POST',
@@ -29,10 +35,9 @@ const TodoList: React.FC<{ initialTodoItems: Todo[] }> = ({ initialTodoItems }) 
               })
               await response.blob()
               setNewTodo('')
+              fetchTodos()
             } catch (e) {
               console.error(e)
-              // rollback
-              setTodoItems(prev => prev.slice(0, -1))
             }
           }}
         >
