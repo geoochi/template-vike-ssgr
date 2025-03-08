@@ -4,7 +4,7 @@
     "b": "vike build",
     "p": "pnpx http-server dist/client -a 127.0.0.1 -p 3000",
     "start": "cross-env NODE_ENV=production tsx ./express-entry.ts",
-    "db": "tsx ./database/init.ts"
+    "init-db": "tsx ./src/server/init-db.ts"
   },
   "dependencies": {
     "@universal-middleware/core": "^0.4.4",

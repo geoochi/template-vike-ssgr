@@ -1,6 +1,6 @@
 // TODO: stop using universal-middleware and directly integrate server middlewares instead. (Bati generates boilerplates that use universal-middleware https://github.com/magne4000/universal-middleware to make Bati's internal logic easier. This is temporary and will be removed soon.)
 import type { Get, UniversalHandler } from '@universal-middleware/core'
-import db from '@/database/db'
+import db from './db'
 import type { Todo } from '@/types'
 
 export const todoGet: Get<[], UniversalHandler<Universal.Context & {}>> =
