@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 
-export function TodoList({ initialTodoItems }: { initialTodoItems: { text: string }[] }) {
-  const [todoItems, setTodoItems] = useState(initialTodoItems);
-  const [newTodo, setNewTodo] = useState("");
+export function TodoList({
+  initialTodoItems,
+}: {
+  initialTodoItems: { text: string }[]
+}) {
+  const [todoItems, setTodoItems] = useState(initialTodoItems)
+  const [newTodo, setNewTodo] = useState('')
   return (
     <>
       <ul>
@@ -14,31 +18,35 @@ export function TodoList({ initialTodoItems }: { initialTodoItems: { text: strin
       <div>
         <form
           onSubmit={async (ev) => {
-            ev.preventDefault();
+            ev.preventDefault()
 
             // Optimistic UI update
-            setTodoItems((prev) => [...prev, { text: newTodo }]);
+            setTodoItems((prev) => [...prev, { text: newTodo }])
             try {
-              const response = await fetch("/api/todo/create", {
-                method: "POST",
+              const response = await fetch('/api/todo/create', {
+                method: 'POST',
                 body: JSON.stringify({ text: newTodo }),
                 headers: {
-                  "Content-Type": "application/json",
+                  'Content-Type': 'application/json',
                 },
-              });
-              await response.blob();
-              setNewTodo("");
+              })
+              await response.blob()
+              setNewTodo('')
             } catch (e) {
-              console.error(e);
+              console.error(e)
               // rollback
-              setTodoItems((prev) => prev.slice(0, -1));
+              setTodoItems((prev) => prev.slice(0, -1))
             }
           }}
         >
-          <input type="text" onChange={(ev) => setNewTodo(ev.target.value)} value={newTodo} />
-          <button type="submit">Add to-do</button>
+          <input
+            type='text'
+            onChange={(ev) => setNewTodo(ev.target.value)}
+            value={newTodo}
+          />
+          <button type='submit'>Add to-do</button>
         </form>
       </div>
     </>
-  );
+  )
 }

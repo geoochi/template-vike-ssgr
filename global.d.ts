@@ -1,11 +1,11 @@
-import { db as sqliteDb } from "./database/sqlite/db";
+import { db as sqliteDb } from './database/sqlite/db'
 
 declare global {
   namespace Vike {
     interface PageContext {
-      db: ReturnType<typeof sqliteDb>;
+      db: ReturnType<typeof sqliteDb>
     }
   }
 }
 
-export {};
+export {}

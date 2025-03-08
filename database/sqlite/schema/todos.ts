@@ -1,7 +1,7 @@
-import "dotenv/config";
-import { db } from "../db";
+import 'dotenv/config'
+import { db } from '../db'
 
-const client = db();
+const client = db()
 
 /**
  * SQLite Schema
@@ -10,4 +10,4 @@ const client = db();
 client.exec(`CREATE TABLE IF NOT EXISTS todos (
     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     text TEXT
-)`);
+)`)
