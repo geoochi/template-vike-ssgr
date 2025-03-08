@@ -1,5 +1,5 @@
 import type { Get, UniversalMiddleware } from '@universal-middleware/core'
-import { db as sqliteDb } from '../database/sqlite/db'
+import { db as sqliteDb } from '../database/db'
 
 declare global {
   namespace Universal {

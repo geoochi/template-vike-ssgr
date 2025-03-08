@@ -1,13 +1,12 @@
 // https://vike.dev/data
-import * as sqliteQueries from '../../database/sqlite/queries/todos'
+import { db } from '../../database/db'
 import type { PageContextServer } from 'vike/types'
 
-export type Data = {
-  todo: { text: string }[]
-}
+export type Todo = { id: number; text: string }
 
-export default async function data(_pageContext: PageContextServer): Promise<Data> {
-  const todo = sqliteQueries.getAllTodos(_pageContext.db)
+export default async function data(_pageContext: PageContextServer): Promise<{ todos: Todo[] }> {
+  const client = db()
+  const todos = client.prepare<[], Todo>('SELECT * FROM todos').all()
 
-  return { todo }
+  return { todos }
 }

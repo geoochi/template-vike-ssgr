@@ -1,6 +1,7 @@
 import { useState } from 'react'
+import type { Todo } from './+data'
 
-export function TodoList({ initialTodoItems }: { initialTodoItems: { text: string }[] }) {
+export function TodoList({ initialTodoItems }: { initialTodoItems: Todo[] }) {
   const [todoItems, setTodoItems] = useState(initialTodoItems)
   const [newTodo, setNewTodo] = useState('')
   return (
@@ -17,7 +18,7 @@ export function TodoList({ initialTodoItems }: { initialTodoItems: { text: strin
             ev.preventDefault()
 
             // Optimistic UI update
-            setTodoItems(prev => [...prev, { text: newTodo }])
+            setTodoItems(prev => [...prev, { id: 0, text: newTodo }])
             try {
               const response = await fetch('/api/todo/create', {
                 method: 'POST',

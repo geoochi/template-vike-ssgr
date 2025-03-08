@@ -3,7 +3,7 @@
     "d": "tsx ./express-entry.ts",
     "b": "vike build",
     "p": "cross-env NODE_ENV=production tsx ./express-entry.ts",
-    "db": "tsx ./database/sqlite/schema/all.ts"
+    "db": "tsx ./database/init.ts"
   },
   "dependencies": {
     "@universal-middleware/core": "^0.4.4",
