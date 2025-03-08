@@ -1,9 +1,9 @@
 {
   "scripts": {
-    "dev": "tsx ./express-entry.ts",
-    "build": "vike build",
-    "preview": "cross-env NODE_ENV=production tsx ./express-entry.ts",
-    "sqlite:migrate": "tsx ./database/sqlite/schema/all.ts"
+    "d": "tsx ./express-entry.ts",
+    "b": "vike build",
+    "p": "cross-env NODE_ENV=production tsx ./express-entry.ts",
+    "db": "tsx ./database/sqlite/schema/all.ts"
   },
   "dependencies": {
     "@universal-middleware/core": "^0.4.4",
