@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import type { Todo } from './+data'
+import type { Todo } from '@/types'
 
 const TodoList: React.FC<{ initialTodoItems: Todo[] }> = ({ initialTodoItems }) => {
   const [todoItems, setTodoItems] = useState(initialTodoItems)

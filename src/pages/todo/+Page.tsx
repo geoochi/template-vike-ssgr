@@ -1,5 +1,5 @@
 import { useData } from 'vike-react/useData'
-import type { Todo } from './+data'
+import type { Todo } from '@/types'
 import TodoList from './TodoList'
 
 const Page: React.FC = () => {
