@@ -3,7 +3,7 @@ import { dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { createHandler } from '@universal-middleware/express'
 import { createDevMiddleware } from 'vike/server'
-import { createTodoHandler } from '@/server/create-todo-handler'
+import { todoGet, todoCreate } from '@/server/todo-handler'
 import { vikeHandler } from '@/server/vike-handler'
 
 const root = dirname(fileURLToPath(import.meta.url))
@@ -16,7 +16,8 @@ if (process.env.NODE_ENV === 'production') {
   app.use(devMiddleware)
 }
 
-app.post('/api/todo/create', createHandler(createTodoHandler)())
+app.get('/api/todo', createHandler(todoGet)())
+app.post('/api/todo/create', createHandler(todoCreate)())
 app.all('*', createHandler(vikeHandler)())
 
 const port = 3000
