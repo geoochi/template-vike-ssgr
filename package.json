@@ -1,11 +1,11 @@
 {
   "scripts": {
-    "d": "tsx ./express-entry.ts",
+    "d": "tsx express-entry.ts",
     "b": "pnpm b:client && pnpm b:server",
     "b:client": "vike build",
     "b:server": "tsc --project tsconfig.node.json",
     "p": "pnpx http-server dist/client -a 127.0.0.1 -p 3000",
-    "start": "NODE_ENV=production node ./express-entry.js"
+    "start": "NODE_ENV=production node express-entry.js"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.2",
