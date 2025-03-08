@@ -1,4 +1,4 @@
-import { db as sqliteDb } from './database/db'
+import { db as sqliteDb } from '@/database/db'
 
 declare global {
   namespace Vike {

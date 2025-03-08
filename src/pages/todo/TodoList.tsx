@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import type { Todo } from './+data'
 
-export function TodoList({ initialTodoItems }: { initialTodoItems: Todo[] }) {
+const TodoList: React.FC<{ initialTodoItems: Todo[] }> = ({ initialTodoItems }) => {
   const [todoItems, setTodoItems] = useState(initialTodoItems)
   const [newTodo, setNewTodo] = useState('')
   return (
@@ -43,3 +43,5 @@ export function TodoList({ initialTodoItems }: { initialTodoItems: Todo[] }) {
     </>
   )
 }
+
+export default TodoList

@@ -1,8 +1,8 @@
-import type { Todo } from './+data'
 import { useData } from 'vike-react/useData'
-import { TodoList } from './TodoList'
+import type { Todo } from './+data'
+import TodoList from './TodoList'
 
-export default function Page() {
+const Page: React.FC = () => {
   const data = useData<{ todos: Todo[] }>()
   return (
     <>
@@ -11,3 +11,5 @@ export default function Page() {
     </>
   )
 }
+
+export default Page

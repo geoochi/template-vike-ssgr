@@ -1,10 +1,10 @@
+import express from 'express'
 import { dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { createTodoHandler } from './server/create-todo-handler'
-import { vikeHandler } from './server/vike-handler'
 import { createHandler } from '@universal-middleware/express'
 import { createDevMiddleware } from 'vike/server'
-import express from 'express'
+import { createTodoHandler } from '@/server/create-todo-handler'
+import { vikeHandler } from '@/server/vike-handler'
 
 const root = dirname(fileURLToPath(import.meta.url))
 const app = express()
