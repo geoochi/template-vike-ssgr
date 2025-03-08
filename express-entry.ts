@@ -3,8 +3,8 @@ import { dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { createHandler } from '@universal-middleware/express'
 import { createDevMiddleware } from 'vike/server'
-import { getCount, countPlus } from '@/server/api-handler'
-import { vikeHandler } from '@/server/vike-handler'
+import { getCount, countPlus } from './src/server/api-handler.js'
+import { vikeHandler } from './src/server/vike-handler.js'
 
 const root = dirname(fileURLToPath(import.meta.url))
 const app = express()
