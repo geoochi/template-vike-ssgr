@@ -5,3 +5,4 @@ node_modules
 *.db
 /*.js
 /src/server/*.js
+*.log
