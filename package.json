@@ -1,0 +1,31 @@
+{
+  "scripts": {
+    "dev": "tsx ./express-entry.ts",
+    "build": "vike build",
+    "preview": "cross-env NODE_ENV=production tsx ./express-entry.ts",
+    "sqlite:migrate": "tsx ./database/sqlite/schema/all.ts"
+  },
+  "dependencies": {
+    "vike": "^0.4.223",
+    "@universal-middleware/express": "^0.4.1",
+    "express": "^4.21.2",
+    "dotenv": "^16.4.7",
+    "@vitejs/plugin-react": "^4.3.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "vike-react": "^0.5.13",
+    "@universal-middleware/core": "^0.4.0",
+    "better-sqlite3": "^11.8.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3",
+    "vite": "^6.1.1",
+    "@types/express": "^4.17.21",
+    "tsx": "^4.19.3",
+    "cross-env": "^7.0.3",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@types/better-sqlite3": "^7.6.12"
+  },
+  "type": "module"
+}
